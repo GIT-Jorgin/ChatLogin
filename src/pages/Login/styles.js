@@ -12,7 +12,9 @@ export const MainContainer = styled.div`
 export const ChatCard = styled.div`
     min-width:  360px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
     height: 500px;
     border-radius: 30px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -29,6 +31,9 @@ export const ChatCard = styled.div`
 
 export const Content = styled.div`
     width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     height: 430px;
     position: relative;
     background: white;
@@ -85,4 +90,68 @@ export const Send = styled(FontAwesomeIcon)`
         bottom: 16.5px;
         -webkit-tap-highlight-color: transparent;
     }
+`;
+
+export const CardHeader = styled.h2`
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: 300;
+`;
+
+export const ChatContent = styled.div`
+    width: 95%;
+    height: calc(100% - 20px);
+    position: relative;
+`;
+
+export const ChatMenssageContainer = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    height: ${props => props.height || 45}px;
+    margin-top: 10px;
+`;
+
+export const ChatSendMenssageContainer = styled.div`
+    width: 100%;
+    height: ${props => props.height || 45}px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 10px;
+`;
+
+export const ChatMessage = styled.div`
+    width: 65%;
+    max-width: 230px;
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    left: 40px;
+    min-height: 45px;
+    background: #FFFFFF;
+    border-radius: 0px 8px 8px 8px;
+    border: 1px solid #B2BBC2;
+`;
+
+export const ChatSendMessage = styled.div`
+    width: 65%;
+    max-width: 230px;
+    display: inline-flex;
+    align-items: center;
+    right: 40px;
+    position: absolute;
+    min-height: 45px;
+    border-radius: 8px 8px 0px 8px;
+    background: rgb(102,172,247);
+    background: linear-gradient(90deg, rgba(102,172,247,1) 0%, rgba(35,118,203,1) 100%);
+`;
+
+export const ChatUser = styled.div`
+    width: 35px;
+    height:  35px;
+    border-radius: 100%;
+    background: cyan;
+    margin-top: -14.5px;
+    margin-bottom: -17px;
 `;
