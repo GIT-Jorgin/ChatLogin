@@ -48,14 +48,15 @@ export const Content = styled.div`
 `;
 
 export const ChatInput = styled.input`
-    width: 88%;
+    width: 75%;
     height: 40px;
     border: 0px solid black;
-    border-radius: 20px;
-    padding-left: 20px;
+    border-radius: 100px;
+    padding: 2px 45px 2px 20px;
     position: absolute;
     margin: auto;
     left: 0;
+    z-index: 2;
     right: 0;
     outline: none;
     font-family: 'Roboto', sans-serif;
@@ -76,18 +77,18 @@ export const Send = styled(FontAwesomeIcon)`
     font-size: 16px;
     padding: 8px;
     border-radius: 100px;
-    bottom: 16px;
+    bottom: 17.5px;
     right: 18px;
     cursor: pointer;
-    z-index: 1;
+    z-index: 3;
 
     &:hover{
         background: rgba(46, 195, 255, 0.3);
     }
 
     @media(max-width: 460px){
-        right: 22px;
-        bottom: 16.5px;
+        right: 25px;
+        bottom: 17.5px;
         -webkit-tap-highlight-color: transparent;
     }
 `;
@@ -100,51 +101,61 @@ export const CardHeader = styled.h2`
 
 export const ChatContent = styled.div`
     width: 95%;
-    height: calc(100% - 20px);
+    border-radius: 15px;
+    max-width: 360px;
+    height: 100%;
     position: relative;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+     display: none;
+    }
 `;
 
 export const ChatMenssageContainer = styled.div`
     width: 100%;
-    display: flex;
+    display: inline-flex;
+    position: relative;
     align-items: flex-start;
-    height: ${props => props.height || 45}px;
-    margin-top: 10px;
+    max-width: 360px;
+
 `;
 
 export const ChatSendMenssageContainer = styled.div`
-    width: 100%;
-    height: ${props => props.height || 45}px;
-    display: flex;
+    display: inline-flex;
     align-items: flex-end;
-    justify-content: flex-end;
+    flex-direction: row-reverse;
+    width: 100%;
+    max-width: 360px;
+    position: relative;
     margin-top: 10px;
 `;
 
 export const ChatMessage = styled.div`
-    width: 65%;
-    max-width: 230px;
-    display: inline-flex;
+    min-width: 50px;
+    justify-content: center;
+    display: flex;
     align-items: center;
-    position: absolute;
-    left: 40px;
+    margin-left: 5px;
     min-height: 45px;
     background: #FFFFFF;
     border-radius: 0px 8px 8px 8px;
-    border: 1px solid #B2BBC2;
+    background: #F1F3F7;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 `;
 
 export const ChatSendMessage = styled.div`
-    width: 65%;
-    max-width: 230px;
-    display: inline-flex;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto; 
+    margin-right: 4px;
     align-items: center;
-    right: 40px;
-    position: absolute;
     min-height: 45px;
     border-radius: 8px 8px 0px 8px;
     background: rgb(102,172,247);
     background: linear-gradient(90deg, rgba(102,172,247,1) 0%, rgba(35,118,203,1) 100%);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 `;
 
 export const ChatUser = styled.div`
@@ -153,5 +164,20 @@ export const ChatUser = styled.div`
     border-radius: 100%;
     background: cyan;
     margin-top: -14.5px;
-    margin-bottom: -17px;
+    margin-bottom: -20px;
+`;
+
+export const ChatScroll = styled.div`
+    padding-bottom: 70px;
+    padding-top: 30px;
+`;
+
+export const Overlay = styled.div`
+    width: 100%;
+    height: 40px;
+    background: rgba(255,255,255, 0.7);   
+    position: absolute;
+    z-index: 1;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 `;
