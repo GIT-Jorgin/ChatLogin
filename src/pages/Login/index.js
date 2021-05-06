@@ -1,13 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { CardHeader, ChatCard, ChatContent, ChatInput, ChatMenssageContainer, ChatMessage, ChatSendMenssageContainer, Content, MainContainer, Send, ChatSendMessage, ChatUser, ChatScroll, Overlay } from './styles'
+import React, { useState, useEffect } from 'react';
+import { CardHeader, ChatCard, ChatContent, ChatInput, ChatMenssageContainer, ChatMessage, ChatSendMenssageContainer, Content, MainContainer, Send, ChatSendMessage, ChatUser, ChatScroll, Overlay, InputContent } from './styles'
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Login(){
-    const [messageHeight, setMessageHeight] = useState();
-    const [SendMessageHeight, setSendMessageHeight] = useState();
-    const refMessageHeight = useRef(null);
-    const refSendMessageHeight = useRef(null);
     const [message, setMessage] = useState();
     const [chat, setChat] = useState([
         {
@@ -20,8 +16,8 @@ export default function Login(){
         },
     ]);
 
-    function SendMessage(){
-
+    function SendMessage(e){
+        e.preventDefault();
         if (!message) {
             return
         }
@@ -35,32 +31,29 @@ export default function Login(){
     }
     
     useEffect ( () => {
-        if(refMessageHeight.current && refSendMessageHeight.current){
-            
-            let messageheight1 = refMessageHeight.current.offsetHeight;
-            let sendMessageHeight1 = refSendMessageHeight.current.offsetHeight;
-            setMessageHeight(messageheight1)
-            setSendMessageHeight(sendMessageHeight1)
-        }
-        
-    }, [refMessageHeight, refSendMessageHeight]);
+
+        var objDiv = document.getElementById("chat");
+        objDiv.scrollTop = objDiv.scrollHeight;
+
+    }, [chat]);
+
 
     function RenderChat( {item} ){
 
         if (item.uid === 1) {
         return(
-            <ChatMenssageContainer height={messageHeight}>
+            <ChatMenssageContainer>
                 <ChatUser uid={item.uid} />
-                <ChatMessage ref={refMessageHeight}>
+                <ChatMessage>
                     <p style={{color: '#919296', fontWeight: 700, maxWidth: 230, margin: 10, fontFamily: 'Roboto, sans-serif'}}>{item.message}</p>
                 </ChatMessage>
             </ChatMenssageContainer>
             )
         }
         return(
-                <ChatSendMenssageContainer height={SendMessageHeight}>
+                <ChatSendMenssageContainer>
                     <ChatUser />
-                    <ChatSendMessage ref={refSendMessageHeight}>
+                    <ChatSendMessage>
                         <p style={{color: '#FFFFFF', maxWidth: 230, margin: 10, fontFamily: 'Roboto, sans-serif', wordBreak: 'break-word' }}>{item.message}</p>
                     </ChatSendMessage>
                 </ChatSendMenssageContainer>
@@ -72,13 +65,15 @@ export default function Login(){
             <ChatCard>
                 <CardHeader>LOGIN</CardHeader>
                 <Content>
-                    <ChatContent>
+                    <ChatContent id="chat">
                         <ChatScroll>
                             {chat.map((item, index) => <RenderChat key={index} item={item}/>)}
                         </ChatScroll>
                     </ChatContent>
-                    <Send onClick={SendMessage} icon={faPaperPlane} />
-                    <ChatInput onChange={e => setMessage(e.target.value)} placeholder="Sua mensagem..." />
+                    <InputContent onSubmit={SendMessage}>
+                        <Send onClick={SendMessage} type="submit" icon={faPaperPlane} />
+                        <ChatInput onChange={e => setMessage(e.target.value)} placeholder="Sua mensagem..." />
+                    </InputContent>
                     <Overlay />
                 </Content>
             </ChatCard>

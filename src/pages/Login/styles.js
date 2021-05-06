@@ -47,6 +47,11 @@ export const Content = styled.div`
     }
 `;
 
+export const InputContent = styled.form`
+    width: 100%;
+    position: absolute;
+`;
+
 export const ChatInput = styled.input`
     width: 75%;
     height: 40px;
@@ -61,7 +66,7 @@ export const ChatInput = styled.input`
     outline: none;
     font-family: 'Roboto', sans-serif;
     bottom: 12px;
-    background: #F6F6F6;
+    background: #F2F1F9;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     color: #383B3D;
 
@@ -175,7 +180,7 @@ export const ChatScroll = styled.div`
 export const Overlay = styled.div`
     width: 100%;
     height: 40px;
-    background: rgba(255,255,255, 0.7);   
+    background: rgba(255,255,255, 0.75);   
     position: absolute;
     z-index: 1;
     border-bottom-left-radius: 30px;
