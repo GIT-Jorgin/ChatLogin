@@ -102,6 +102,11 @@ export const CardHeader = styled.h2`
     font-family: 'Roboto', sans-serif;
     color: white;
     font-weight: 300;
+
+    @media(max-width: 460px){
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
 `;
 
 export const ChatContent = styled.div`
@@ -123,6 +128,7 @@ export const ChatMenssageContainer = styled.div`
     position: relative;
     align-items: flex-start;
     max-width: 360px;
+    margin-top: 15px;
 
 `;
 
