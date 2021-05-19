@@ -142,7 +142,6 @@ export default function Login() {
                             email: "",
                             pass: ""
                         });
-                        console.log(res);
                         EchoMessages(res.data)
                     }
                 }
