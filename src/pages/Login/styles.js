@@ -211,10 +211,9 @@ export const UserProfile = styled.div`
     flex-direction: column;
 `;
 
-export const ProfilePic = styled.div`
+export const ProfilePic = styled.img`
     width: 100px;
     height: 100px;
-    background: forestgreen;
     border-radius: 25%;
 `;
 

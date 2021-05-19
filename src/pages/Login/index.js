@@ -4,6 +4,7 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import api from '../../services/api';
 import UserAvatar from '../../imgs/userAvatar.png';
 import BotAvatar from '../../imgs/botAvatar.png';
+import UserPic from '../../imgs/userPic.jpg'
 
 export default function Login() {
     const [logged, setLogged] = useState(false);
@@ -128,7 +129,6 @@ export default function Login() {
                     email: formData.email,
                     pass: formData.pass
                 }
-                console.log(data);
                 await api.post('login', data, config).then(function(res){ ;
                 if (res) {
                     setChatLoader(false);
@@ -183,7 +183,6 @@ export default function Login() {
             if (!LOGINTOKEN) {
                 if (res.data.connected) {
                     setError(null);
-                    console.log(res.data);
                     const wellcome = [
                         {
                             uid: 1,
@@ -231,7 +230,6 @@ export default function Login() {
             email: "",
             pass: ""
         });
-        console.log({logged: false})
         await Con();
     }
 
@@ -268,7 +266,7 @@ export default function Login() {
                     <ChatContent id="chat">
                         {logged &&
                         <UserProfile>
-                            <ProfilePic />
+                            <ProfilePic src={UserPic} />
                             <ProfileName>Test</ProfileName>
                             <Logout onClick={() => LogoutF()}>SAIR</Logout>
                         </UserProfile>}
