@@ -90,11 +90,12 @@ export const Send = styled.button`
     font-size: 16px;
     padding: 8px;
     border-radius: 100px;
-    bottom: 17.5px;
+    bottom: 16px;
     right: 18px;
     cursor: pointer;
     z-index: 3;
     background: rgba(46, 195, 255, 0.0);
+    border: 0px solid black;
 
     &:hover{
         background: rgba(46, 195, 255, 0.3);
