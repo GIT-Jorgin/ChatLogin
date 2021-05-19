@@ -6,8 +6,8 @@ Esse projeto foi desenvolvido usando [Create React App](https://github.com/faceb
 
 As credenciais corretas para fazer **LOGIN** são:
 
-**Nome de usuario:** Test<br/>
-**E-mail:** test<span></span>@email.com<br/>
-**Senha:** test123
+🧑🏻 **Nome de usuario:** Test<br/>
+📧 **E-mail:** test<span></span>@email.com<br/>
+🔑 **Senha:** test123
 
 ![App PrintScreen](https://i.imgur.com/G1vkqkO.png)
