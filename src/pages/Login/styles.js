@@ -83,7 +83,7 @@ export const ChatInput = styled.input`
     }
 `;
 
-export const Send = styled(FontAwesomeIcon)`
+export const Send = styled.button`
     color: #2EC3FF;
     position: absolute;
     margin: auto;
@@ -94,6 +94,7 @@ export const Send = styled(FontAwesomeIcon)`
     right: 18px;
     cursor: pointer;
     z-index: 3;
+    background: rgba(46, 195, 255, 0.0);
 
     &:hover{
         background: rgba(46, 195, 255, 0.3);

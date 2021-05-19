@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CardHeader, ChatCard, ChatContent, ChatInput, ChatMenssageContainer, ChatMessage, ChatSendMenssageContainer, Content, MainContainer, Send, ChatSendMessage, ChatUser, ChatScroll, Overlay, InputContent, UserProfile, ProfilePic, ProfileName, Logout, Error, RetryButton } from './styles'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import api from '../../services/api';
 import UserAvatar from '../../imgs/userAvatar.png';
@@ -308,7 +309,7 @@ export default function Login() {
                         </ChatScroll>}
                     </ChatContent>
                     {!logged && <InputContent onSubmit={SendMessage}>
-                        <Send onClick={SendMessage} type="submit" icon={faPaperPlane} />
+                        <Send type="submit"><FontAwesomeIcon icon={faPaperPlane} /></Send>
                         <ChatInput value={message || ''} disabled={chatLoader} type={input.type} onChange={e => setMessage(e.target.value)} placeholder={input.placeholder} />
                     </InputContent>}
                     {!logged && <Overlay />}
